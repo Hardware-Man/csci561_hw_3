@@ -1,0 +1,13 @@
+final
+co_op: 1
+condo: 2
+land: 3
+pending: 4
+contingent: 5
+for_sale: 6
+house: 7
+foreclosure: 8
+townhouse: 9
+coming_soon: 10
+mobile_house: 11
+multi_family: 12

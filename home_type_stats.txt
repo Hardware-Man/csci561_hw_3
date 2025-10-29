@@ -1,0 +1,83 @@
+Num of house: 1012
+Mean beds for house: 3
+Median beds for house: 3
+Mode beds for house: 3
+Max beds for house: 32
+Min beds for house: 1
+
+Num of townhouse: 299
+Mean beds for townhouse: 5
+Median beds for townhouse: 5
+Mode beds for townhouse: 3
+Max beds for townhouse: 14
+Min beds for townhouse: 1
+
+Num of condo: 896
+Mean beds for condo: 2
+Median beds for condo: 2
+Mode beds for condo: 2
+Max beds for condo: 11
+Min beds for condo: 1
+
+Num of multi_family: 727
+Mean beds for multi_family: 6
+Median beds for multi_family: 5
+Mode beds for multi_family: 6
+Max beds for multi_family: 50
+Min beds for multi_family: 1
+
+Num of co_op: 1450
+Mean beds for co_op: 1
+Median beds for co_op: 2
+Mode beds for co_op: 1
+Max beds for co_op: 8
+Min beds for co_op: 1
+
+Num of contingent: 88
+Mean beds for contingent: 3
+Median beds for contingent: 3
+Mode beds for contingent: 3
+Max beds for contingent: 12
+Min beds for contingent: 1
+
+Num of mobile_house: 1
+Mean beds for mobile_house: 6
+Median beds for mobile_house: 6
+Mode beds for mobile_house: 6
+Max beds for mobile_house: 6
+Min beds for mobile_house: 6
+
+Num of for_sale: 20
+Mean beds for for_sale: 3
+Median beds for for_sale: 3
+Mode beds for for_sale: 3
+Max beds for for_sale: 8
+Min beds for for_sale: 1
+
+Num of foreclosure: 14
+Mean beds for foreclosure: 4
+Median beds for foreclosure: 4
+Mode beds for foreclosure: 4
+Max beds for foreclosure: 6
+Min beds for foreclosure: 2
+
+Num of land: 49
+Mean beds for land: 3
+Median beds for land: 3
+Mode beds for land: 3
+Max beds for land: 3
+Min beds for land: 3
+
+Num of coming_soon: 2
+Mean beds for coming_soon: 4
+Median beds for coming_soon: 4
+Mode beds for coming_soon: 5
+Max beds for coming_soon: 5
+Min beds for coming_soon: 4
+
+Num of pending: 243
+Mean beds for pending: 3
+Median beds for pending: 3
+Mode beds for pending: 3
+Max beds for pending: 9
+Min beds for pending: 1

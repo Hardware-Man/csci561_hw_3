@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{p}{[}
+        \PYG{c+c1}{\PYGZsh{} home\PYGZus{}type\PYGZus{}norm,}
+        \PYG{n}{house}\PYG{p}{,} \PYG{n}{townhouse}\PYG{p}{,} \PYG{n}{condo}\PYG{p}{,} \PYG{n}{multi\PYGZus{}family}\PYG{p}{,} \PYG{n}{co\PYGZus{}op}\PYG{p}{,} \PYG{n}{land}\PYG{p}{,}
+        \PYG{c+c1}{\PYGZsh{} contingent, mobile\PYGZus{}house, for\PYGZus{}sale, foreclosure,}
+        \PYG{c+c1}{\PYGZsh{} coming\PYGZus{}soon, pending,}
+
+        \PYG{n}{price\PYGZus{}norm}\PYG{p}{,} \PYG{n}{bath\PYGZus{}norm}\PYG{p}{,} \PYG{n}{sqft\PYGZus{}norm}\PYG{p}{,}
+
+        \PYG{n}{zip\PYGZus{}code\PYGZus{}norm}\PYG{p}{,} \PYG{n}{borough\PYGZus{}norm}\PYG{p}{,}
+        \PYG{c+c1}{\PYGZsh{} manhattan, staten\PYGZus{}island, bronx, brooklyn, queens,}
+
+        \PYG{c+c1}{\PYGZsh{} lat\PYGZus{}norm,}
+        \PYG{n}{long\PYGZus{}norm}
+    \PYG{p}{]}
+\end{Verbatim}

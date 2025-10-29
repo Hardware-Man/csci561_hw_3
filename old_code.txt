@@ -1,0 +1,53 @@
+        # l1 = Layer(n_feats, self.l_neurons[0], Layer.sig)
+        # l2 = Layer(self.l_neurons[0], self.l_neurons[1], Layer.sig)
+                
+                # # Forward Pass
+                # l1_in = X_mini.dot(l1.W) + l1.b
+                # l1_out = l1.act(l1_in)
+
+                # l2_in = l1_out.dot(l2.W) + l2.b
+                # l2_out = l2.act(l2_in)
+
+                # out_in = l2_out.dot(out.W) + out.b
+                # p = out.act(out_in)
+
+                # # Calc loss
+                # if (i + batch_size <= n_samples):
+                #     loss = self.crossent_loss(y_mini, p)
+                #     curr_loss += (loss * X_mini.shape[0])
+
+                # # Back Prop
+                # grad_out = self.crossent_grad(y_mini, p) * out.act(out_in, True)
+                # grad_out_W = l2_out.T.dot(grad_out)
+                # grad_out_b = npsum(grad_out, axis=0, keepdims=True)
+
+                # grad_l2 = grad_out.dot(out.W.T) * l2.act(l2_in, True)
+                # grad_l2_W = l1_out.T.dot(grad_l2)
+                # grad_l2_b = npsum(grad_l2, axis=0, keepdims=True)
+                
+                # grad_l1 = grad_l2.dot(l2.W.T) * l1.act(l1_in, True)
+                # grad_l1_W = X_mini.T.dot(grad_l1)
+                # grad_l1_b = npsum(grad_l1, axis=0, keepdims=True)
+
+                # # Update weights and biases
+                # l1.W -= alpha * grad_l1_W
+                # l1.b -= alpha * grad_l1_b
+
+                # l2.W -= alpha * grad_l2_W
+                # l2.b -= alpha * grad_l2_b
+
+                # out.W -= alpha * grad_out_W
+                # out.b -= alpha * grad_out_b
+
+        # self.l1 = l1
+        # self.l2 = l2
+
+        # l1_in = X.dot(self.l1.W) + self.l1.b
+        # l1_out = self.l1.act(l1_in)
+
+        # l2_in = l1_out.dot(self.l2.W) + self.l2.b
+        # l2_out = self.l2.act(l2_in)
+
+        # out_in = l2_out.dot(self.out.W) + self.out.b
+        # p = self.out.act(out_in)
+

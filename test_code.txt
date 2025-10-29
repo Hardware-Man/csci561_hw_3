@@ -1,0 +1,333 @@
+        # broker = row['BROKERTITLE'].replace('Brokered by', '')
+        # broker = broker.replace('Built by', '')
+        # broker = broker.strip()
+        # broker = broker.lower()
+        # brokers.append(broker)
+        # if broker in broker_db: broker_db[broker] += 1
+        # else                  : broker_db[broker]  = 1
+        
+        home_types.append(home_type)
+
+        prices.append(price)
+
+        baths.append(bath)
+
+        sqfts.append(sqft)
+
+        zip_codes.append(zip_code_lookup[zip_code])
+
+        lats.append(lat)
+        longs.append(long)
+    
+    # all_labels = train_labels + test_labels
+    
+    # brokers = []
+    # broker_db = {}
+
+    home_types = []
+    prices = []
+    baths = []
+    sqfts = []
+    zip_codes = []
+    lats = []
+    longs = []
+        
+        # form_row = {
+        #     'home_type': home_type_norm,
+        #     'house': house, 'townhouse': townhouse, 'condo': condo,
+        #     'multi_family': multi_family, 'co_op': co_op,
+        #     'contingent': contingent, 'mobile_house': mobile_house,
+        #     'for_sale': for_sale, 'foreclosure': foreclosure, 'land': land,
+        #     'coming_soon': coming_soon, 'pending': pending,
+
+        #     'price': price_norm, 'bath': bath_norm, 'sqft': sqft_norm,
+
+        #     'zip_code': zip_code_norm, 'borough': borough_norm,
+        #     'manhattan': manhattan, 'staten_island': staten_island,
+        #     'bronx': bronx, 'brooklyn': brooklyn, 'queens': queens,
+            
+        #     'lat': lat_norm, 'long': long_norm
+        # }
+    
+    max_lat = max(lats)
+    min_lat = min(lats)
+    max_long = max(longs)
+    min_long = min(longs)
+
+    print('Max lat: ', max_lat)
+    print('Min lat: ', min_lat)
+    print('Lat diff: ', max_lat - min_lat)
+    print()
+
+    print('Max long: ', max_long)
+    print('Min long: ', min_long)
+    print('Long diff: ', max_long - min_long)
+    print()
+    
+    prices.sort()
+    baths.sort()
+    sqfts.sort()
+
+    max_price = prices[-1]
+    min_price = prices[0]
+    
+    max_bath = baths[-1]
+    min_bath = baths[0]
+    
+    max_sqft = sqfts[-1]
+    min_sqft = sqfts[0]
+
+    print('Max price: ', max_price)
+    print('Min price: ', min_price)
+    print()
+
+    print('Max bath: ', max_bath)
+    print('Min bath: ', min_bath)
+    print()
+
+    print('Max sqft: ', max_sqft)
+    print('Min sqft: ', min_sqft)
+    print()
+
+    price_minmax_div = max_price - min_price
+    print('Price minmax div: ', price_minmax_div)
+    prices_minmax = [(i-min_price)/price_minmax_div for i in prices]
+    
+    bath_minmax_div = max_bath - min_bath
+    baths_minmax = [(i-min_bath)/bath_minmax_div for i in baths]
+    
+    sqft_minmax_div = max_sqft - min_sqft
+    print('Sqft minmax div: ', sqft_minmax_div)
+    sqfts_minmax = [(i-min_sqft)/sqft_minmax_div for i in sqfts]
+
+    plt.scatter(range(1,len(prices)+1), prices_minmax)
+    plt.show()
+    
+    res = defaultdict(list)
+
+    for key, val in sorted(broker_db.items()):
+        res[val].append(key)
+    
+    res_list = []
+    count = 0
+    for item in sorted(res.items(), reverse=True):
+        if count > 9: break
+        res_list.append(item)
+        count += 1
+
+    print(res_list)
+    print(len(res_list))
+
+    print('Broker: ', broker_check)
+    print('Mean: ', statistics.mean(broker_beds))
+    print('Median: ', statistics.median(broker_beds))
+    print('Mode: ', statistics.mode(broker_beds))
+    print('Max: ', max(broker_beds))
+    print('Min: ', min(broker_beds))
+    
+    house_beds        = []
+    townhouse_beds    = []
+    condo_beds        = []
+    multi_family_beds = []
+    co_op_beds        = []
+    contingent_beds   = []
+    mobile_house_beds = []
+    for_sale_beds     = []
+    foreclosure_beds  = []
+    land_beds         = []
+    coming_soon_beds  = []
+    pending_beds      = []
+        
+        if house == 1:        house_beds.       append(train_labels[count])
+        if townhouse == 1:    townhouse_beds.   append(train_labels[count])
+        if condo == 1:        condo_beds.       append(train_labels[count])
+        if multi_family == 1: multi_family_beds.append(train_labels[count])
+        if co_op == 1:        co_op_beds.       append(train_labels[count])
+        if contingent == 1:   contingent_beds.  append(train_labels[count])
+        if mobile_house == 1: mobile_house_beds.append(train_labels[count])
+        if for_sale == 1:     for_sale_beds.    append(train_labels[count])
+        if foreclosure == 1:  foreclosure_beds. append(train_labels[count])
+        if land == 1:         land_beds.        append(train_labels[count])
+        if coming_soon == 1:  coming_soon_beds. append(train_labels[count])
+        if pending == 1:      pending_beds.     append(train_labels[count])
+
+        if house == 1:        house_beds.       append(test_labels[count])
+        if townhouse == 1:    townhouse_beds.   append(test_labels[count])
+        if condo == 1:        condo_beds.       append(test_labels[count])
+        if multi_family == 1: multi_family_beds.append(test_labels[count])
+        if co_op == 1:        co_op_beds.       append(test_labels[count])
+        if contingent == 1:   contingent_beds.  append(test_labels[count])
+        if mobile_house == 1: mobile_house_beds.append(test_labels[count])
+        if for_sale == 1:     for_sale_beds.    append(test_labels[count])
+        if foreclosure == 1:  foreclosure_beds. append(test_labels[count])
+        if land == 1:         land_beds.        append(test_labels[count])
+        if coming_soon == 1:  coming_soon_beds. append(test_labels[count])
+        if pending == 1:      pending_beds.     append(test_labels[count])
+    
+    mean_house_beds          = statistics.mean(house_beds)
+    median_house_beds        = statistics.median(house_beds)
+    mode_house_beds          = statistics.mode(house_beds)
+    max_house_beds           = max(house_beds)
+    min_house_beds           = min(house_beds)
+    
+    mean_townhouse_beds      = statistics.mean(townhouse_beds)
+    median_townhouse_beds    = statistics.median(townhouse_beds)
+    mode_townhouse_beds      = statistics.mode(townhouse_beds)
+    max_townhouse_beds       = max(townhouse_beds)
+    min_townhouse_beds       = min(townhouse_beds)
+    
+    mean_condo_beds          = statistics.mean(condo_beds)
+    median_condo_beds        = statistics.median(condo_beds)
+    mode_condo_beds          = statistics.mode(condo_beds)
+    max_condo_beds           = max(condo_beds)
+    min_condo_beds           = min(condo_beds)
+    
+    mean_multi_family_beds   = statistics.mean(multi_family_beds)
+    median_multi_family_beds = statistics.median(multi_family_beds)
+    mode_multi_family_beds   = statistics.mode(multi_family_beds)
+    max_multi_family_beds    = max(multi_family_beds)
+    min_multi_family_beds    = min(multi_family_beds)
+    
+    mean_co_op_beds          = statistics.mean(co_op_beds)
+    median_co_op_beds        = statistics.median(co_op_beds)
+    mode_co_op_beds          = statistics.mode(co_op_beds)
+    max_co_op_beds           = max(co_op_beds)
+    min_co_op_beds           = min(co_op_beds)
+    
+    mean_contingent_beds     = statistics.mean(contingent_beds)
+    median_contingent_beds   = statistics.median(contingent_beds)
+    mode_contingent_beds     = statistics.mode(contingent_beds)
+    max_contingent_beds      = max(contingent_beds)
+    min_contingent_beds      = min(contingent_beds)
+    
+    mean_mobile_house_beds   = statistics.mean(mobile_house_beds)
+    median_mobile_house_beds = statistics.median(mobile_house_beds)
+    mode_mobile_house_beds   = statistics.mode(mobile_house_beds)
+    max_mobile_house_beds    = max(mobile_house_beds)
+    min_mobile_house_beds    = min(mobile_house_beds)
+    
+    mean_for_sale_beds       = statistics.mean(for_sale_beds)
+    median_for_sale_beds     = statistics.median(for_sale_beds)
+    mode_for_sale_beds       = statistics.mode(for_sale_beds)
+    max_for_sale_beds        = max(for_sale_beds)
+    min_for_sale_beds        = min(for_sale_beds)
+    
+    mean_foreclosure_beds    = statistics.mean(foreclosure_beds)
+    median_foreclosure_beds  = statistics.median(foreclosure_beds)
+    mode_foreclosure_beds    = statistics.mode(foreclosure_beds)
+    max_foreclosure_beds     = max(foreclosure_beds)
+    min_foreclosure_beds     = min(foreclosure_beds)
+    
+    mean_land_beds           = statistics.mean(land_beds)
+    median_land_beds         = statistics.median(land_beds)
+    mode_land_beds           = statistics.mode(land_beds)
+    max_land_beds            = max(land_beds)
+    min_land_beds            = min(land_beds)
+    
+    mean_coming_soon_beds    = statistics.mean(coming_soon_beds)
+    median_coming_soon_beds  = statistics.median(coming_soon_beds)
+    mode_coming_soon_beds    = statistics.mode(coming_soon_beds)
+    max_coming_soon_beds     = max(coming_soon_beds)
+    min_coming_soon_beds     = min(coming_soon_beds)
+    
+    mean_pending_beds        = statistics.mean(pending_beds)
+    median_pending_beds      = statistics.median(pending_beds)
+    mode_pending_beds        = statistics.mode(pending_beds)
+    max_pending_beds         = max(pending_beds)
+    min_pending_beds         = min(pending_beds)
+
+    print('Num of house:',                 len(house_beds))
+    print('Mean beds for house:',          mean_house_beds)
+    print('Median beds for house:',        median_house_beds)
+    print('Mode beds for house:',          mode_house_beds)
+    print('Max beds for house:',           max_house_beds)
+    print('Min beds for house:',           min_house_beds)
+    print()
+    
+    print('Num of townhouse:',             len(townhouse_beds))
+    print('Mean beds for townhouse:',      mean_townhouse_beds)
+    print('Median beds for townhouse:',    median_townhouse_beds)
+    print('Mode beds for townhouse:',      mode_townhouse_beds)
+    print('Max beds for townhouse:',       max_townhouse_beds)
+    print('Min beds for townhouse:',       min_townhouse_beds)
+    print()
+
+    print('Num of condo:',                 len(condo_beds))
+    print('Mean beds for condo:',          mean_condo_beds)
+    print('Median beds for condo:',        median_condo_beds)
+    print('Mode beds for condo:',          mode_condo_beds)
+    print('Max beds for condo:',           max_condo_beds)
+    print('Min beds for condo:',           min_condo_beds)
+    print()
+
+    print('Num of multi_family:',          len(multi_family_beds))
+    print('Mean beds for multi_family:',   mean_multi_family_beds)
+    print('Median beds for multi_family:', median_multi_family_beds)
+    print('Mode beds for multi_family:',   mode_multi_family_beds)
+    print('Max beds for multi_family:',    max_multi_family_beds)
+    print('Min beds for multi_family:',    min_multi_family_beds)
+    print()
+
+    print('Num of co_op:',                 len(co_op_beds))
+    print('Mean beds for co_op:',          mean_co_op_beds)
+    print('Median beds for co_op:',        median_co_op_beds)
+    print('Mode beds for co_op:',          mode_co_op_beds)
+    print('Max beds for co_op:',           max_co_op_beds)
+    print('Min beds for co_op:',           min_co_op_beds)
+    print()
+
+    print('Num of contingent:',            len(contingent_beds))
+    print('Mean beds for contingent:',     mean_contingent_beds)
+    print('Median beds for contingent:',   median_contingent_beds)
+    print('Mode beds for contingent:',     mode_contingent_beds)
+    print('Max beds for contingent:',      max_contingent_beds)
+    print('Min beds for contingent:',      min_contingent_beds)
+    print()
+
+    print('Num of mobile_house:',          len(mobile_house_beds))
+    print('Mean beds for mobile_house:',   mean_mobile_house_beds)
+    print('Median beds for mobile_house:', median_mobile_house_beds)
+    print('Mode beds for mobile_house:',   mode_mobile_house_beds)
+    print('Max beds for mobile_house:',    max_mobile_house_beds)
+    print('Min beds for mobile_house:',    min_mobile_house_beds)
+    print()
+
+    print('Num of for_sale:',              len(for_sale_beds))
+    print('Mean beds for for_sale:',       mean_for_sale_beds)
+    print('Median beds for for_sale:',     median_for_sale_beds)
+    print('Mode beds for for_sale:',       mode_for_sale_beds)
+    print('Max beds for for_sale:',        max_for_sale_beds)
+    print('Min beds for for_sale:',        min_for_sale_beds)
+    print()
+
+    print('Num of foreclosure:',           len(foreclosure_beds))
+    print('Mean beds for foreclosure:',    mean_foreclosure_beds)
+    print('Median beds for foreclosure:',  median_foreclosure_beds)
+    print('Mode beds for foreclosure:',    mode_foreclosure_beds)
+    print('Max beds for foreclosure:',     max_foreclosure_beds)
+    print('Min beds for foreclosure:',     min_foreclosure_beds)
+    print()
+
+    print('Num of land:',                  len(land_beds))
+    print('Mean beds for land:',           mean_land_beds)
+    print('Median beds for land:',         median_land_beds)
+    print('Mode beds for land:',           mode_land_beds)
+    print('Max beds for land:',            max_land_beds)
+    print('Min beds for land:',            min_land_beds)
+    print()
+
+    print('Num of coming_soon:',           len(coming_soon_beds))
+    print('Mean beds for coming_soon:',    mean_coming_soon_beds)
+    print('Median beds for coming_soon:',  median_coming_soon_beds)
+    print('Mode beds for coming_soon:',    mode_coming_soon_beds)
+    print('Max beds for coming_soon:',     max_coming_soon_beds)
+    print('Min beds for coming_soon:',     min_coming_soon_beds)
+    print()
+
+    print('Num of pending:',               len(pending_beds))
+    print('Mean beds for pending:',        mean_pending_beds)
+    print('Median beds for pending:',      median_pending_beds)
+    print('Mode beds for pending:',        mode_pending_beds)
+    print('Max beds for pending:',         max_pending_beds)
+    print('Min beds for pending:',         min_pending_beds)
+    print()
